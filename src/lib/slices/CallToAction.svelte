@@ -5,45 +5,92 @@
 	console.log(slice)
 </script>
   
-<div class="primary">
+<div class="hero">
 	{#if slice.primary.icon_image?.url}
-		<PrismicImage field={slice.primary.icon_image} />
+	<div class="hero-image">
+		<img  
+		src={prismicH.asImageSrc(slice.primary.icon_image)}
+		srcset={prismicH.asImageWidthSrcSet(slice.primary.icon_image).srcset} 
+		alt={slice.primary.icon_image.alt} 
+	/>
+	</div>
 	{/if}
-
-  {@html prismicH.asHTML(slice.primary.title)}
-  {@html prismicH.asHTML(slice.primary.paragraph)}
-
-	{#if slice.primary.button_link?.url && slice.primary.button_label}
-	  <a href={slice.primary.button_link.url} class="button">{slice.primary.button_label}</a>
-	{/if}
+	<div class="hero-caption--wrap">
+		<div class="hero-caption">
+			{@html prismicH.asHTML(slice.primary.title)}
+			{@html prismicH.asHTML(slice.primary.paragraph)}
+			{#if slice.primary.button_link?.url && slice.primary.button_label}
+				<a href={slice.primary.button_link.url} class="btn">{slice.primary.button_label}</a>
+			{/if}
+		</div>
+	</div>
 </div>
   
 	<style>
-	.primary {
+	.hero {
 	  width: 100%;
 	  max-width: 3960px;
 	  height: auto;
 	  position: relative;
 	}
-	
-	.primary img {
-	  display: block;
-	  margin: 0;
+	.hero-image{
+		position: relative;
 	}
-	
-	.primary h1 {
+	.hero-image img{
+		display:block;
+		margin:0;
+	}
+	@media(max-width:1023px){
+		.hero-image:after{
+			content:'';
+			display:block;
+			height:0;
+			padding-bottom:120%;
+		}
+		.hero img {
+			position:absolute;
+			width:100%;
+			height:100%;
+			object-fit:cover;
+		}
+	}
+	@media(min-width:600px){
+		.hero-image:after{
+			padding-bottom:100%;
+		}
+	}
+	@media(min-width:769px){
+		.hero-image:after{
+			padding-bottom:80%;
+		}
+	}
+	@media(min-width:1024px){
+		.hero-caption--wrap{		
+			position: absolute;
+			top: 0;
+			right: 0;
+			left: 0;
+			bottom: 0;
+			display:flex;
+			align-items:center;
+			justify-content:space-around;
+		}
+		.hero-caption{
+			color:white;
+			text-align:center;
+		}
+	}
+	.hero-caption h1 {
 	  font-size: 2em;
 	  margin: 0;
 	  padding: 1em;
 	}
-	
-	.primary p {
+	.hero-caption p {
 	  font-size: 1em;
 	  margin: 0;
 	  padding: 1em;
 	}
-	
-	.primary .button {
+	.hero-caption .btn {
 	  display: inline-block;
 	  background-color: #007bff;
 	  color: #fff;
