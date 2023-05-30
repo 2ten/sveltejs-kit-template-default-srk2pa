@@ -2,27 +2,21 @@
 	export let slice;
 	import { PrismicImage } from "@prismicio/svelte"
   import * as prismicH from "@prismicio/helpers";
-	console.log(slice.primary.title)
+	console.log(slice)
 </script>
   
-	<div class="primary">
+<div class="primary">
 	{#if slice.primary.icon_image?.url}
 		<PrismicImage field={slice.primary.icon_image} />
 	{/if}
 
-	{#if slice.primary.title?.text }
-  	{@html prismicH.asHTML(slice.primary.title)}
-	{/if}
-
-	{#if slice.primary.paragraph?.text }
-  	{@html prismicH.asHTML(slice.primary.paragraph)}
-	{/if}
+  {@html prismicH.asHTML(slice.primary.title)}
+  {@html prismicH.asHTML(slice.primary.paragraph)}
 
 	{#if slice.primary.button_link?.url && slice.primary.button_label}
 	  <a href={slice.primary.button_link.url} class="button">{slice.primary.button_label}</a>
 	{/if}
-  </div>
-  
+</div>
   
 	<style>
 	.primary {
