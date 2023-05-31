@@ -11,7 +11,9 @@
 </svelte:head>
 
 {#if data && data.document}
+<div class="container container--article">
   {@html prismicH.asHTML(data.document.data.title)}
   {@html prismicH.asHTML(data.document.data.description)}
   <SliceZone slices={data.document.data.body} {components} {dev} />
+</div>
 {/if}

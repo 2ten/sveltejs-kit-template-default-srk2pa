@@ -140,6 +140,11 @@ template {
 }
 /* Typography 
 ---------------------------- */
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.4;
+}
 h1 {
   font-size: 2em;
   font-weight: bold;
@@ -171,6 +176,10 @@ img {
 .container {
   padding: 0 15px;
   max-width: 1536px;
+  margin:0 auto;
+}
+.container--article {
+  max-width: 650px;
 }
 @media (min-width: 1280px) {
   .container {
