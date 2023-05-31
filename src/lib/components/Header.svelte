@@ -11,7 +11,7 @@
 	$: $page.url && (active = false)
 </script>
 <header class="main-header">
-	<div class="flex items-center justify-between">
+	<div class="main-header--wrap">
 		<div class="logo">Logo</div>
 		<a href="#" 
 			 class="main-nav--toggle"
@@ -42,6 +42,12 @@
 	border-bottom:solid 1px #ccc;
 	padding-left:15px;
 	padding-right:15px;
+}
+.main-header--wrap{
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+	min-height:60px;
 }
 .main-nav--list{
 	margin:0;

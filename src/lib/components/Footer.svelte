@@ -8,7 +8,7 @@
 </script>
 
 <footer class="main-footer">
-	<div class="container mx-auto">
+	<div class="container">
 		<nav>
 			{#if footerItems}
 				{#each footerItems as item}

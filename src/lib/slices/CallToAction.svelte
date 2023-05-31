@@ -1,33 +1,33 @@
 <script>
 	export let slice;
-	import { PrismicImage } from "@prismicio/svelte"
   import * as prismicH from "@prismicio/helpers";
-	console.log(slice)
 </script>
-  
-<div class="hero">
-	{#if slice.primary.icon_image?.url}
-	<div class="hero-image">
-		<img  
-		src={prismicH.asImageSrc(slice.primary.icon_image)}
-		srcset={prismicH.asImageWidthSrcSet(slice.primary.icon_image).srcset} 
-		alt={slice.primary.icon_image.alt} 
-	/>
-	</div>
-	{/if}
-	<div class="hero-caption--wrap">
-		<div class="hero-caption">
-			{@html prismicH.asHTML(slice.primary.title)}
-			{@html prismicH.asHTML(slice.primary.paragraph)}
-			{#if slice.primary.button_link?.url && slice.primary.button_label}
-				<a href={slice.primary.button_link.url} class="btn">{slice.primary.button_label}</a>
-			{/if}
+
+<section class="hero">
+	<div class="hero-container">
+		{#if slice.primary.icon_image?.url}
+		<div class="hero-image">
+			<img  
+			src={prismicH.asImageSrc(slice.primary.icon_image)}
+			srcset={prismicH.asImageWidthSrcSet(slice.primary.icon_image).srcset} 
+			alt={slice.primary.icon_image.alt} 
+		  />
+		</div>
+		{/if}
+		<div class="hero-caption--wrap">
+			<div class="hero-caption">
+				{@html prismicH.asHTML(slice.primary.title)}
+				{@html prismicH.asHTML(slice.primary.paragraph)}
+				{#if slice.primary.button_link?.url && slice.primary.button_label}
+					<a href={slice.primary.button_link.url} class="btn">{slice.primary.button_label}</a>
+				{/if}
+			</div>
 		</div>
 	</div>
-</div>
+</section>
   
 	<style>
-	.hero {
+	.hero-container {
 	  width: 100%;
 	  max-width: 3960px;
 	  height: auto;
@@ -40,14 +40,17 @@
 		display:block;
 		margin:0;
 	}
-	@media(max-width:1023px){
+	.hero-caption{
+		padding:15px;
+	}
+	@media(max-width:1024px){
 		.hero-image:after{
 			content:'';
 			display:block;
 			height:0;
 			padding-bottom:120%;
 		}
-		.hero img {
+		.hero-container img {
 			position:absolute;
 			width:100%;
 			height:100%;
@@ -97,8 +100,6 @@
 	  font-size: 1em;
 	  text-align: center;
 	  padding: 1em;
-	  margin: 1em;
 	  text-decoration: none;
-	  border-radius: 4px;
 	}
 	</style>

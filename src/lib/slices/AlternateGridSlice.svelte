@@ -1,62 +1,70 @@
 <script>
 	export let slice
-	const { width, height } = slice.primary.optional_image.dimensions;
-	import { PrismicImage } from "@prismicio/svelte"
+  import * as prismicH from "@prismicio/helpers";
+  let align = slice.primary.image_side
 </script>
-	
-	  
-	  <div class="alternate-grid-container">
-		<div class="image-container">
-      <PrismicImage field={slice.primary.optional_image} />
-		</div>
-		<div class="text-container">
-		  <h2 class="eyebrow-headline">{@html slice.primary.eyebrow_headline[0].text}</h2>
-		  <h1 class="title">{@html slice.primary.title[0].text}</h1>
-		  <p class="description">{@html slice.primary.description[0].text}</p>
-		</div>
-	  </div>
+
+<section class="alternate-grid">
+  <div class="container"> 
+    <div class="alternate-grid--container image-align--{align}">
+      <div class="image-container">
+        <img  
+        src={prismicH.asImageSrc(slice.primary.optional_image)}
+        srcset={prismicH.asImageWidthSrcSet(slice.primary.optional_image).srcset} 
+        alt={slice.primary.optional_image.alt} 
+        />
+      </div>
+      <div class="text-container">
+        <h2 class="eyebrow-headline">{@html slice.primary.eyebrow_headline[0].text}</h2>
+        <h1 class="title">{@html slice.primary.title[0].text}</h1>
+        <p class="description">{@html slice.primary.description[0].text}</p>
+      </div>
+    </div>
+  </div>
+</section>
 	  
 <style>
-.alternate-grid-container {
+.alternate-grid--container{
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f5f5f5;
+  flex-direction:column;
 }
-
-.image-container {
-  flex-basis: calc(50% - 20px);
+.image-container{
+  order:1;
 }
-
-.optional-image {
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  max-height: calc(50vh - 40px);
+.text-container{
+  order:2;
 }
-
-.text-container {
-  flex-basis: calc(50% - 20px);
-  margin-left: 20px;
+@media(min-width:769px){
+  .alternate-grid--container {
+    align-items: center;
+    flex-direction:row;
+    justify-content: space-between;
+  }
+  .image-align--right .image-container{
+    order:2;
+  }
+  .image-align--right .text-container{
+    order:1;
+  }
+  .image-container {
+    flex-basis: calc(50% - 20px);
+  }
+  .text-container {
+    flex-basis: calc(50% - 20px);
+    margin-left: 20px;
+  }
 }
-
 .eyebrow-headline {
   font-size: 18px;
   font-weight: 600;
   text-transform: uppercase;
   margin-bottom: 10px;
 }
-
 .title {
   font-size: 36px;
   font-weight: 700;
   margin-bottom: 20px;
 }
-
 .description {
   font-size: 18px;
   line-height: 1.6;
