@@ -7,13 +7,15 @@
 		<div class="container">
 			{@html prismicH.asHTML(slice.primary.section_title)}
 			{@html prismicH.asHTML(slice.primary.section_text)}
-			<div class="list-items">
+			{#if slice.items && prismicH.asText(slice.items[0].section_bulletpoint) }
+			<ul class="list-items">
 			{#each slice.items as item, index}
-				<div class="item" key={`item-${index}`}>
-				<p>{item.section_bulletpoint[0].text}</p>
-				</div>
+				<li class="item" key={`item-${index}`}>
+				<p>{@html prismicH.asHTML(item.section_bulletpoint)}</p>
+				</li>
 			{/each}
-			</div>
+			</ul>
+			{/if}
 		</div>
 	</section>
 	

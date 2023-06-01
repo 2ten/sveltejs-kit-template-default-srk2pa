@@ -14,6 +14,6 @@
 <div class="container container--article">
   {@html prismicH.asHTML(data.document.data.title)}
   {@html prismicH.asHTML(data.document.data.description)}
-  <SliceZone slices={data.document.data.body} {components} {dev} />
 </div>
+<SliceZone slices={data.document.data.body} {components} {dev} />
 {/if}
