@@ -14,12 +14,20 @@
   <SliceZone slices={data.documents.document.data.body} {components} {dev} />
 {/if}
 
-{#if data && data.documents.blogs}
-<div class="container">
-  <ul>
+<div class="blog-container">
+  {#if data && data.documents.blogs}
     {#each data.documents.blogs as blog}
-      <li><a href={`/blog/${blog.uid}`}>{blog.uid}</a></li>
+      <div class="blog-item">
+        <div class="blog-item--image">
+          <div class="image-container">
+            <img src={blog.data.image.url} alt={blog.data.image.alt} />
+          </div>
+        </div>
+        <div class="blog-item--caption">
+          <h3>{#if blog.data.title[0] && blog.data.title[0].text}{blog.data.title[0].text}{/if}</h3>
+          <p>{#if blog.data.description[0] && blog.data.description[0].text}{blog.data.description[0].text}{/if}</p>
+        </div>
+      </div>
     {/each}
-  </ul>
+  {/if}
 </div>
-{/if}
