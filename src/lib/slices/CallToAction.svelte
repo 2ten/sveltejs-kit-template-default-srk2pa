@@ -81,6 +81,7 @@
 			display:flex;
 			align-items:center;
 			justify-content:space-around;
+			background: linear-gradient(-45deg, rgba(229,93,135,.7), rgba(95,195,228,.7));
 		}
 		.hero-caption{
 			color:white;
