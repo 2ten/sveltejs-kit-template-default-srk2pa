@@ -43,31 +43,35 @@
 	.hero-caption{
 		padding:15px;
 	}
+	.hero-image{
+		position: relative;
+	}
+	.hero-image img {
+		position:absolute;
+		width:100%;
+		height:100%;
+		object-fit:cover;
+	}
 	@media(max-width:1024px){
-		.hero-image:after{
-			content:'';
-			display:block;
-			height:0;
-			padding-bottom:120%;
-		}
-		.hero-container img {
-			position:absolute;
-			width:100%;
-			height:100%;
-			object-fit:cover;
+		.hero-image{
+			aspect-ratio:0.8;
 		}
 	}
 	@media(min-width:600px){
-		.hero-image:after{
-			padding-bottom:100%;
+		.hero-image{
+			aspect-ratio:1;
 		}
 	}
 	@media(min-width:769px){
-		.hero-image:after{
-			padding-bottom:80%;
+		.hero-image{
+			aspect-ratio:3/2;
 		}
 	}
 	@media(min-width:1024px){
+		.hero-image{
+			height:100vh;
+			width:100%
+		}
 		.hero-caption--wrap{		
 			position: absolute;
 			top: 0;
