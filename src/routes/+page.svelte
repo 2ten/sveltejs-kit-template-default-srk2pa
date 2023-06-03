@@ -13,7 +13,7 @@
 
   
 
-<pre>{JSON.stringify(data.scripts.data.header_scripts,null,2)}</pre>
+
 {#if data && data.document}
   <div class="container">
   {@html prismicH.asHTML(data.document.data.title)}
