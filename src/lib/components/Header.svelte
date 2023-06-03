@@ -13,12 +13,11 @@
 <header class="main-header">
 	<div class="main-header--wrap">
 		<div class="logo">Logo</div>
-		<a href="#" 
-			 class="main-nav--toggle"
+		<span class="main-nav--toggle" id="menuToggle"
 			 data-label-active="Close"
 			 data-label="Menu"
 			 class:active
-			 on:click={() => active = !active}>Menu</a>
+			 on:click={() => active = !active}>Menu</span>
 		<nav class="main-nav">
 			{#if menuItems}
 			<ul class="main-nav--list">
@@ -70,7 +69,7 @@
 		transition:opacity 0.2s ease;
 	}
 	.main-nav--toggle{
-
+		cursor: pointer;
 	}
 	.main-nav--toggle.active{
 		color:white;
