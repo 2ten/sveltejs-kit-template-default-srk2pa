@@ -19,7 +19,7 @@
 {/if}
 
 <div class="container">
-  <div class="blog-container">
+  <div class="blog-grid">
     {#if data && data.documents.blogs}
       {#each data.documents.blogs as blog}
 
@@ -48,7 +48,7 @@
 </div>
 
 <style>
-.blog-container {
+.blog-grid {
   display: grid;
   gap: 20px;
 }
@@ -73,7 +73,7 @@
   margin: 0;
 }
 @media (min-width: 640px) {
-  .blog-container {
+  .blog-grid {
     grid-template-columns: repeat(2, 1fr);
   }
   .blog-item {
@@ -81,7 +81,7 @@
   }
 }
 @media (min-width: 960px) {
-  .blog-container {
+  .blog-grid {
     grid-template-columns: repeat(3, 1fr);
   }
   .blog-item {
