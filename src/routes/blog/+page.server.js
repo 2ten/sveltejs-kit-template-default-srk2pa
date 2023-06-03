@@ -2,7 +2,7 @@ import { error } from '@sveltejs/kit';
 
 import createClient from '$lib/prismicio';
 
-import * as prismic from "@prismicio/client";
+//import * as prismic from '@prismicio/client';
 
 export async function load({ fetch, params, request }) {
   const client = createClient({ fetch, request });
@@ -15,9 +15,7 @@ export async function load({ fetch, params, request }) {
   // });
 
   const blogs = await client.get({
-      filters: [
-        prismic.filter.at('document.type', 'blog')
-      ]
+    filters: [prismic.filter.at('document.tags', 'street')],
   });
 
   return {

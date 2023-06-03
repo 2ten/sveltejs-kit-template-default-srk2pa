@@ -55,19 +55,13 @@
   }
 }
 .eyebrow-headline {
-  font-size: 18px;
-  font-weight: 600;
   text-transform: uppercase;
   margin-bottom: 10px;
 }
 .title {
-  font-size: 36px;
-  font-weight: 700;
   margin-bottom: 20px;
 }
 .description {
-  font-size: 18px;
-  line-height: 1.6;
   margin-bottom: 40px;
 }
 </style>
