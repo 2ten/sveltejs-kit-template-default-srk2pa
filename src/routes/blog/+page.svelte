@@ -4,8 +4,6 @@
   import { dev } from "$app/environment"
   import * as components from "$lib/slices"
 	import * as prismic from '@prismicio/client';
-
-  console.log(data)
 </script>
 
 <svelte:head>

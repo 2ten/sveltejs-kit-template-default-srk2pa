@@ -3,6 +3,7 @@ import createClient from '$lib/prismicio';
 import * as prismic from '@prismicio/client';
 
 export async function load({ fetch, params, request }) {
+
   const client = createClient({ fetch, request });
   const document = await client.getSingle('blog_list');
 
