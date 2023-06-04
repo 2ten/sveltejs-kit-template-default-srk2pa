@@ -22,7 +22,7 @@ const routes = [
   },
   {
     type: 'blog_list',
-    path: '/blog/[:tag]',
+    path: '/blog',
   },
 ];
 

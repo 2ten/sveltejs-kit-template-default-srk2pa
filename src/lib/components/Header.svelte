@@ -1,6 +1,6 @@
 <script>
 	export let data;
-	import * as prismicH from "@prismicio/helpers";
+	import * as prismic from '@prismicio/client';
 	import { page } from '$app/stores';
 	let menuItems = [];
 	const mainMenu = data.document.find((item) => item.uid === 'main-menu');
@@ -27,7 +27,7 @@
 					{#if activeLink}
 						<span class="main-nav--link">{item.name}</span>
 					{:else}
-						<a href={prismicH.asLink(item.link)} class="main-nav--link">{item.name}</a>
+						<a href={prismic.asLink(item.link)} class="main-nav--link">{item.name}</a>
 					{/if}
 					</li>
 				{/each}

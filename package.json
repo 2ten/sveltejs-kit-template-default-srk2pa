@@ -16,7 +16,7 @@
   },
   "type": "module",
   "dependencies": {
-    "@prismicio/client": "^7.0.0",
+    "@prismicio/client": "^7.0.1",
     "@prismicio/svelte": "^0.0.9",
     "swiper": "^9.3.2"
   }

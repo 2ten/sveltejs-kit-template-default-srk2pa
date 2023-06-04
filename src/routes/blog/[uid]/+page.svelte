@@ -3,11 +3,11 @@
   import { dev } from "$app/environment"
   export let data
   import * as components from "$lib/slices"
-  import * as prismicH from "@prismicio/helpers";
+	import * as prismic from '@prismicio/client';
 </script>
 
 <svelte:head>
-  <title>{prismicH.asText(data?.document?.data?.title)}</title>
+  <title>{prismic.asText(data?.document?.data?.title)}</title>
 </svelte:head>
 
 {#if data && data.document}
@@ -15,15 +15,15 @@
 <div class="blog-image">
   <div class="image-container">
     <img  
-      src={prismicH.asImageSrc(data.document.data.image)}
-      srcset={prismicH.asImageWidthSrcSet(data.document.data.image).srcset} 
+      src={prismic.asImageSrc(data.document.data.image)}
+      srcset={prismic.asImageWidthSrcSet(data.document.data.image).srcset} 
       alt={data.document.data.image.alt} />
   </div>
 </div>
 {/if}
 <div class="container container--small">
-  {@html prismicH.asHTML(data.document.data.title)}
-  {@html prismicH.asHTML(data.document.data.description)}
+  {@html prismic.asHTML(data.document.data.title)}
+  {@html prismic.asHTML(data.document.data.description)}
 </div>
 <SliceZone slices={data.document.data.body} {components} {dev} />
 {/if}

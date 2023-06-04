@@ -1,5 +1,6 @@
 <script>
 	export let data;
+	import * as prismic from '@prismicio/client';
 	let footerItems = [];
   const mainMenu = data.document.find((item) => item.uid === 'footer-menu');
   if (mainMenu && mainMenu.data.items) {
@@ -13,7 +14,7 @@
 			{#if footerItems}
 				{#each footerItems as item}
 					{#if item.link.url}
-						<a href={item.link.url} class="text-gray-700 uppercase transition-all duration-300">
+						<a href={prismic.asLink(item.link)}>
 							{item.name}
 						</a>
 					{/if}

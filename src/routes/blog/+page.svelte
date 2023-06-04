@@ -3,41 +3,43 @@
   import { SliceZone } from '@prismicio/svelte';
   import { dev } from "$app/environment"
   import * as components from "$lib/slices"
-  import * as prismicH from "@prismicio/helpers";
+	import * as prismic from '@prismicio/client';
+
+  console.log(data)
 </script>
 
 <svelte:head>
-  <title>{prismicH.asText(data?.documents?.document?.data?.title)}</title>
+  <title>{prismic.asText(data?.documents?.document?.data?.title)}</title>
 </svelte:head>
 
 {#if data && data.documents.document}
   <div class="container">
-  {@html prismicH.asHTML(data.documents.document.data.title)}
-  {@html prismicH.asHTML(data.documents.document.data.description)}
+  {@html prismic.asHTML(data.documents.document.data.title)}
+  {@html prismic.asHTML(data.documents.document.data.description)}
   </div>
   <SliceZone slices={data.documents.document.data.body} {components} {dev} />
 {/if}
 
 <div class="container">
   <div class="blog-grid">
-    {#if data && data.documents.blogs}
-      {#each data.documents.blogs as blog}
+    {#if data && data.documents.blogs.results}
+      {#each data.documents.blogs.results as blog}
 
         <div class="blog-item">
-          <a href={prismicH.asLink(blog)} class="blog-item--link">
+          <a href={prismic.asLink(blog)} class="blog-item--link">
           {#if blog.data.image.url}
           <div class="blog-item--image">
             <div class="image-container">
               <img  
-			          src={prismicH.asImageSrc(blog.data.image)}
-			          srcset={prismicH.asImageWidthSrcSet(blog.data.image).srcset} 
+			          src={prismic.asImageSrc(blog.data.image)}
+			          srcset={prismic.asImageWidthSrcSet(blog.data.image).srcset} 
 			          alt={blog.data.image.alt} />
             </div>
           </div>
           {/if}
           <div class="blog-item--caption">
-            {#if blog.data.title[0] && blog.data.title[0].text}<h3>{@html prismicH.asText(blog.data.title)}</h3>{/if}
-            {#if blog.data.description[0] && blog.data.description[0].text}<p>{@html prismicH.asText(blog.data.description)}</p>{/if}
+            {#if blog.data.title[0] && blog.data.title[0].text}<h3>{@html prismic.asText(blog.data.title)}</h3>{/if}
+            {#if blog.data.description[0] && blog.data.description[0].text}<p>{@html prismic.asText(blog.data.description)}</p>{/if}
           </div>
           </a>
         </div>
