@@ -26,6 +26,11 @@
   {@html prismic.asHTML(data.document.data.description)}
 </div>
 <SliceZone slices={data.document.data.body} {components} {dev} />
+<div class="blog-footer">
+  <div class="container">
+    <a href="/blog" title="Back to Blog" class="btn">Back to Blog</a>
+  </div>
+</div>
 {/if}
 
 <style>
@@ -40,5 +45,9 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.blog-footer{
+  padding:30px 0;
+  text-align:center;
 }
 </style>

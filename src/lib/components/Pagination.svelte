@@ -16,10 +16,12 @@ total_results_size
 </script>
 
 <div class="pagination">
+  <div class="pagination-pages">
   {currentPage}/{totalPages}
+  </div>
 	<div class="btn-group">
-		<a class="btn btn-outline" href="?page={currentPage - 1 <= 0 ? totalPages : currentPage - 1}">Prev</a>
-		<a class="btn btn-outline" href="?page={currentPage + 1 > totalPages ? '1' : currentPage + 1}">Next</a>
+		<a class="btn" href="?page={currentPage - 1 <= 0 ? totalPages : currentPage - 1}">Prev</a>
+		<a class="btn" href="?page={currentPage + 1 > totalPages ? '1' : currentPage + 1}">Next</a>
 	</div>
 </div>
 
@@ -27,5 +29,11 @@ total_results_size
 .pagination{
   text-align:center;
   padding:30px 0
+}
+.pagination-pages{
+  padding:10px 0
+}
+.pagination .btn{
+  margin:0 5px
 }
 </style>

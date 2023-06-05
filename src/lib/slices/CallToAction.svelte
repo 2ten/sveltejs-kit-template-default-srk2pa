@@ -98,13 +98,4 @@
 	  margin: 0;
 	  padding: 1em;
 	}
-	.hero-caption .btn {
-	  display: inline-block;
-	  background-color: #007bff;
-	  color: #fff;
-	  font-size: 1em;
-	  text-align: center;
-	  padding: 1em;
-	  text-decoration: none;
-	}
 	</style>
