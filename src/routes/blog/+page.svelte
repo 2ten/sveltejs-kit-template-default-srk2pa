@@ -1,6 +1,7 @@
 <script>
   export let data;
   import { SliceZone } from '@prismicio/svelte';
+  import Pagination from '$lib/components/Pagination.svelte';
   import { dev } from "$app/environment"
   import * as components from "$lib/slices"
 	import * as prismic from '@prismicio/client';
@@ -45,6 +46,7 @@
       {/each}
     {/if}
   </div>
+  <Pagination data={data.documents.blogs} />
 </div>
 
 <style>
