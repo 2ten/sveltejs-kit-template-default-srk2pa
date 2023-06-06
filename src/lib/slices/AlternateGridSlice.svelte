@@ -1,6 +1,7 @@
 <script>
 	export let slice
   import * as prismicH from "@prismicio/helpers";
+  import { useLazyImage as lazyImage } from 'svelte-lazy-image';
   let align = slice.primary.image_side
 </script>
 
@@ -9,9 +10,10 @@
     <div class="alternate-grid--container image-align--{align}">
       <div class="image-container">
         <img  
-        src={prismicH.asImageSrc(slice.primary.optional_image)}
-        srcset={prismicH.asImageWidthSrcSet(slice.primary.optional_image).srcset} 
+        data-src={prismicH.asImageSrc(slice.primary.optional_image)}
+        data-srcset={prismicH.asImageWidthSrcSet(slice.primary.optional_image).srcset} 
         alt={slice.primary.optional_image.alt} 
+        use:lazyImage
         />
       </div>
       <div class="text-container">
